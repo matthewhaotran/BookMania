@@ -1,0 +1,13 @@
+.jumbotron {
+    margin-top: 3em;
+    background-color: white;
+}
+
+.jumbotron p {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#disclaimer {
+    font-size: 1em;
+}

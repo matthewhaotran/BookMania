@@ -9,7 +9,7 @@
 
     function BookManiaController(BookManiaFactory) {
         var vm = this;
-        vm.message = 'Hello World';
+        vm.appear = false;
         vm.getLibrary = getLibrary;
 
         function getLibrary (author) {
@@ -17,7 +17,7 @@
                 .getBooks(author)
                 .then(function(books) {
                     vm.books = books;
-                    console.log(vm.books.items);
+                    vm.appear = true;
                 });
         };
 
