@@ -12,7 +12,10 @@
         vm.appear = false;
         vm.getLibrary = getLibrary;
         vm.getBookReview = getBookReview;
+        vm.getRandomQuestion = getRandomQuestion;
         vm.searchHistory = [];
+        vm.randomNumber = 0;
+        vm.randomQuestion = '';
 
         /////////////////////////////////////////////
 
@@ -23,10 +26,10 @@
                     vm.books = books;
                     vm.appear = true;
                     vm.isbns.push(books.items[0].volumeInfo.industryIdentifiers[0].identifier)
-                    console.log(vm.isbns);
                 });
 
             vm.searchHistory.push(author);
+            getTriviaQuestions ()
         };
 
         function getBookReview (isbn) {
@@ -38,7 +41,24 @@
                 })
         };
 
+        function getTriviaQuestions () {
+            BookManiaFactory
+                .getTrivia()
+                .then(function(trivia){
+                    vm.trivia = trivia.results;
+                    console.log(vm.trivia);
+                });
 
+            
+        };
+
+        function getRandomQuestion() {
+            getTriviaQuestions ();
+            vm.randomNumber =  Math.floor(Math.random() * 48);
+            vm.randomQuestion = vm.trivia[vm.randomNumber].question;
+        }
+
+        
 
         activate();
 

@@ -10,7 +10,8 @@
     function BookManiaFactory($http) {
         var service = {
             getBooks: getBooks,
-            getReview: getReview
+            getReview: getReview,
+            getTrivia: getTrivia
         };
 
         return service;
@@ -26,6 +27,14 @@
         function getReview(isbn) {
             return $http
                 .get('https://www.goodreads.com/book/review_counts.json?isbns=' + isbn + '%2C0141439602&key=oR6JfakAXBBNZeV0kdlDvA')
+                .then(function(response) {
+                    return response.data;
+                });
+        }
+
+        function getTrivia() {
+            return $http
+                .get('https://opentdb.com/api.php?amount=750&category=10&type=multiple')
                 .then(function(response) {
                     return response.data;
                 });
