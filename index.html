@@ -28,7 +28,7 @@
             <p id="disclaimer">(Books that are available on Google Books and rated on Good Reads)</p>
         </div>
 
-        <div class="row">
+        <div class="row" ng-cloak>
             <div class="col-sm-8 col-sm-offset-2">
                 <form>
                     <label>Enter Author's Name: </label>
@@ -44,7 +44,7 @@
 
         <br><br>
 
-        <div class="row" ng-show="BMCtrl.appear" id="books-table">
+        <div class="row" ng-show="BMCtrl.appear" id="books-table" ng-cloak>
             <div class="col-sm-8 col-sm-offset-2">
                 <table class="table table-striped table-bordered table-hover table-condensed">
                     <tr class="info">
